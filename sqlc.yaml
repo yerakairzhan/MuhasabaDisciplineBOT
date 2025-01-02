@@ -1,0 +1,10 @@
+version: "2"
+sql:
+  - schema: "./migrations/000001_create_users_table.up.sql" # Path to your schema file
+    queries: "./db/query"                                  # Path to SQL query directory
+    engine: "postgresql"                                   # Database engine
+    gen:
+      go:
+        package: "db"                                      # Package name for generated Go code
+        out: "./db"                                        # Output directory for generated code
+        emit_json_tags: true                               # Include JSON tags in structs
