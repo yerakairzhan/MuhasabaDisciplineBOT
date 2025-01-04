@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  bot:
+    build:
+      context: . # Используется Dockerfile из текущей директории
+    ports:
+      - "8000:8000" # Порт, на котором бот слушает запросы
+    environment:
+      - BOT_TOKEN=7938650816:AAHO3AS_2_7Tj6CpHQqgSmstr52zGw07Oko
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=root
+      - DB_PASSWORD=secret
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine # Легкий образ PostgreSQL
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432" # PostgreSQL default port

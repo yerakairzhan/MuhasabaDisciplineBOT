@@ -23,7 +23,7 @@ func HandleCommand(bot *tgbotapi.BotAPI, update tgbotapi.Update, queries *db.Que
 	case "muhasaba":
 		sakina_msg(bot, queries, userID)
 	case "menu":
-		text := "<b>Постоянное Меню</b>\n\n⚖️/muhasaba\n🌅/duha"
+		text := "<b>Постоянное Меню</b>\n\n⚖️ /muhasaba\n🌅 /duha\n📊 /stat\n"
 		msg := tgbotapi.NewMessage(userID, text)
 		msg.ParseMode = "HTML"
 		msg.ReplyMarkup = keyboards.InlineMenu()

@@ -29,6 +29,7 @@ func main() {
 
 	connStr := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", envUser, envPass, envPost, envPort, envDbnm)
 	dbConn, err := sql.Open("postgres", connStr)
+	log.Println(connStr)
 	if err != nil {
 		log.Fatalf("Error with DB connection: %v", err)
 	}
